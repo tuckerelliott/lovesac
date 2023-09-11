@@ -12,22 +12,22 @@
 
  :root {
   /* colors */
-  --link-color: #035fe6;
+  --link-color: #00808c;
   --link-hover-color: #136ff6;
   --background-color: #fff;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
-  --text-color: #000;
+  --text-color: #56585a;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: museo-sans,'Helvetica Neue',Helvetica,Arial,sans-serif;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --fixed-font-family: museo-sans,'Helvetica Neue',Helvetica,Arial,sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+  --body-font-size-xs: 13px;
 
   /* heading sizes */
   --heading-font-size-xxl: 48px;
@@ -43,7 +43,7 @@
 }
 
 @font-face {
-  font-family: roboto-fallback;
+  font-family: museo-sans,'Helvetica Neue',Helvetica,Arial,sans-serif;
   size-adjust: 100.06%;
   ascent-override: 95%;
   src: local('Arial');
@@ -53,8 +53,8 @@
 @media (min-width: 900px) {
   :root {
     --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
+    --heading-font-size-xl: 24px;
+    --heading-font-size-l: 28px;
     --heading-font-size-m: 30px;
     --heading-font-size-s: 24px;
     --heading-font-size-xs: 22px;
@@ -69,6 +69,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  text-align: center;
 }
 
 body.appear {
@@ -82,7 +83,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.25;
   margin-top: 1em;
   margin-bottom: .5em;
@@ -142,11 +143,12 @@ a:hover {
 /* buttons */
 a.button:any-link, button {
   font-family: var(--body-font-family);
+  font-size: 14px;
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
   border: 2px solid transparent;
-  padding: 5px 30px;
+  padding: 8px 60px;
   text-align: center;
   font-style: normal;
   font-weight: 600;
@@ -157,7 +159,7 @@ a.button:any-link, button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  border-radius: 0px;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
