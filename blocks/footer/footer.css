@@ -12,3 +12,9 @@ footer .footer {
 footer .footer p {
   margin: 0;
 }
+
+ul {
+  display: flex;
+  gap: 2em;
+  list-style-type: none;
+}
