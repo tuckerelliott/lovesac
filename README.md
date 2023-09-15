@@ -7,8 +7,16 @@ This repo is an Helix/Franklin/NGC/SuccessEdge/EDN project that will serve as th
 - Live: https://main--lovesac--tuckerelliott.hlx.live/
 
 ### GraphQL Endpoints
-
 - Lovesac Staging: https://staging.lovesac.com/graphql
+
+## Devcontainers
+
+This repository has a `.devcontainer` directory suitable for running the project in vscode or Github Codespaces. By default, the devcontainer will install node dependancies and run `hlx up` resulting in a development server spawning on port `3000`.
+
+## Page Templates
+
+`templates/blank.html` contains a representation of a lovesac page. There is a `<content>` div around line 310 that can be used to anchor content.
+Fetched with Firefox
 
 ## Installation
 
