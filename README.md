@@ -1,9 +1,14 @@
-# Your Project's Title...
-Your project's description...
+# Lovesac Crosswalk Demo
+
+This repo is an Helix/Franklin/NGC/SuccessEdge/EDN project that will serve as the basis for showcasing Project Crosswalk's ability to leverage a Helix project (this codebase) within Universal Editor and to serve the composed experience over the Helix "Edge Delivery Network".  
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--lovesac--tuckerelliott.hlx.page/
+- Live: https://main--lovesac--tuckerelliott.hlx.live/
+
+### GraphQL Endpoints
+
+- Lovesac Staging: https://staging.lovesac.com/graphql
 
 ## Installation
 
