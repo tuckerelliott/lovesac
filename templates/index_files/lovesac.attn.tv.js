@@ -1,0 +1,1 @@
+(function(){"use strict";const i={CUSTOM_EMAIL_LEAD_EVENTS:({email:t})=>{try{t&&(localStorage.setItem("digioh_email",t),window.blueConicClient.event.publish("attentiveFormSubmit",[{type:"email",value:t}]))}catch{}},CUSTOM_LEAD_EVENTS:t=>{const{phone:e}=t;window.blueConicClient.event.publish("attentiveFormSubmit",[{type:"phone",value:e}])}};window.__attentive_client_cfg=i})();

@@ -1,0 +1,1 @@
+requirejs.config({bundles:{'magepack/bundle-cms':['Magento_PageBuilder/js/widget/show-on-hover','Magento_PageBuilder/js/content-type/banner/appearance/default/widget']}});
