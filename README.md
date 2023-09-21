@@ -9,6 +9,9 @@ This repo is an Helix/Franklin/NGC/SuccessEdge/EDN project that will serve as th
 ### GraphQL Endpoints
 - Lovesac Staging: https://staging.lovesac.com/graphql
 
+## Configurator and CORS
+Currently there is a CORs issue preventing [the configurator](https://configurator-v2--lovesac--tuckerelliott.hlx.live/sactionals/build/203a585400317f3b2b900f32ffa8886b) from showing in a normal context. You can disable CORs Restrictions in Safari in `Develop` >> `Disable CORs Restrictions`.
+
 ## Devcontainers
 
 This repository has a `.devcontainer` directory suitable for running the project in vscode or Github Codespaces. By default, the devcontainer will install node dependancies and run `hlx up` resulting in a development server spawning on port `3000`.
