@@ -69,6 +69,27 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
+function makeButtonsAccessible(doc) {
+  const btns = doc.querySelectorAll('button');
+  for (const btn of btns) {
+    if (!btn.getAttribute('aria-label')) {
+      btn.setAttribute('aria-label', btn.textContent);
+    }
+  }
+}
+
+function makeLinksAccessible(doc) {
+  const anchors = document.querySelectorAll('a');
+  for (const anchor of anchors) {
+    const spn = anchor.querySelector('span');
+    if (spn && spn.classList.contains('icon')) {
+      anchor.setAttribute('aria-label', [...spn.classList].find(e => e.startsWith('icon-')).replace('-', ' '));
+      continue;
+    }
+    anchor.setAttribute('aria-label', anchor.textContent);
+  }
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
@@ -110,6 +131,9 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  makeButtonsAccessible(doc);
+  makeLinksAccessible(doc);
 
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
