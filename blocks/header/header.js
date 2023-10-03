@@ -126,6 +126,11 @@ export default async function decorate(block) {
     // add aria-label based on link text
     const anchors = nav.querySelectorAll('a');
     for (const anchor of anchors) {
+      const spn = anchor.querySelector('span');
+      if(spn && spn.classList.contains('icon-search')) {
+        anchor.setAttribute('aria-label', "Search icon");
+        continue;
+      }
       anchor.setAttribute('aria-label', anchor.textContent);
     }
 
