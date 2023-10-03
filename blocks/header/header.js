@@ -127,8 +127,8 @@ export default async function decorate(block) {
     const anchors = nav.querySelectorAll('a');
     for (const anchor of anchors) {
       const spn = anchor.querySelector('span');
-      if(spn && spn.classList.contains('icon-search')) {
-        anchor.setAttribute('aria-label', "Search icon");
+      if(spn && spn.classList.contains('icon')) {
+        anchor.setAttribute('aria-label', [...spn.classList].find(e => e.startsWith('icon-')).replace('-', ' '));
         continue;
       }
       anchor.setAttribute('aria-label', anchor.textContent);
