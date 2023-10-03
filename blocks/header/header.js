@@ -123,6 +123,12 @@ export default async function decorate(block) {
       });
     }
 
+    // add aria-label based on link text
+    const anchors = nav.querySelectorAll('a');
+    for (const anchor of anchors) {
+      anchor.setAttribute('aria-label', anchor.textContent);
+    }
+
     // hamburger for mobile
     const hamburger = document.createElement('div');
     hamburger.classList.add('nav-hamburger');
