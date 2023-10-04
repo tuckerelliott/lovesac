@@ -73,20 +73,27 @@ function makeButtonsAccessible(doc) {
   const btns = doc.querySelectorAll('button');
   for (const btn of btns) {
     if (!btn.getAttribute('aria-label')) {
+      const parent = btn.closest('div');
+      if (parent.classList.contains('carousel-buttons')) {
+        btn.setAttribute('aria-label', 'Carousel button');
+        continue;
+      }
       btn.setAttribute('aria-label', btn.textContent);
     }
   }
 }
 
-function makeLinksAccessible(doc) {
-  const anchors = document.querySelectorAll('a');
+export function makeLinksAccessible(doc) {
+  const anchors = doc.querySelectorAll('a');
   for (const anchor of anchors) {
     const spn = anchor.querySelector('span');
-    if (spn && spn.classList.contains('icon')) {
-      anchor.setAttribute('aria-label', [...spn.classList].find(e => e.startsWith('icon-')).replace('-', ' '));
-      continue;
+    if (!anchor.getAttribute('aria-label')) {
+      if (spn && spn.classList.contains('icon')) {
+        anchor.setAttribute('aria-label', [...spn.classList].find(e => e.startsWith('icon-')).replace('-', ' '));
+        continue;
+      }
+      anchor.setAttribute('aria-label', anchor.textContent);
     }
-    anchor.setAttribute('aria-label', anchor.textContent);
   }
 }
 

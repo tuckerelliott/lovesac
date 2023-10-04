@@ -1,4 +1,5 @@
 import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
+import { makeLinksAccessible } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -124,17 +125,7 @@ export default async function decorate(block) {
     }
 
     // add aria-label based on link text
-    const anchors = nav.querySelectorAll('a');
-    for (const anchor of anchors) {
-      if (!anchor.getAttribute('aria-label')) {
-        const spn = anchor.querySelector('span');
-        if (spn && spn.classList.contains('icon')) {
-          anchor.setAttribute('aria-label', [...spn.classList].find(e => e.startsWith('icon-')).replace('-', ' '));
-          continue;
-        }
-        anchor.setAttribute('aria-label', anchor.textContent);
-      }
-    }
+    makeLinksAccessible(nav);
 
     // hamburger for mobile
     const hamburger = document.createElement('div');
