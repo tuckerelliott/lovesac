@@ -1,16 +1,16 @@
 import {
-  sampleRUM,
   buildBlock,
-  loadHeader,
-  loadFooter,
+  decorateBlocks,
   decorateButtons,
   decorateIcons,
   decorateSections,
-  decorateBlocks,
   decorateTemplateAndTheme,
-  waitForLCP,
   loadBlocks,
   loadCSS,
+  loadFooter,
+  loadHeader,
+  sampleRUM,
+  waitForLCP,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -114,6 +114,25 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+}
+
+export async function fetchGraphQL(query, variables) {
+  var headers = new Headers();
+  headers.append("Content-Type", "application/json");
+  headers.append("Authorization", "Bearer poyaszyjoe22jk90t7k0garp2up5bptu");
+  headers.append("Cookie", "PHPSESSID=a67625593c63b052f061f57c0d3cef12; private_content_version=ed1affd6de96771b8ab015fea4ef3f03"); 
+
+  if (headers) {
+    return fetch("https://staging.lovesac.com/graphql", {
+      method: 'POST',
+      body: JSON.stringify({
+        variables,
+        query,
+      }),
+      headers: headers,
+    });
+  }
+  throw new Error('fail');
 }
 
 /**
