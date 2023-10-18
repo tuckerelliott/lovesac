@@ -2,9 +2,15 @@ import { fetchGraphQL } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
   if (block.classList.contains('products')) {
+    const skus = block.firstElementChild.firstElementChild.innerText
+      .split(',')
+      .map((sku) => sku.trim())
+      .filter((sku) => !!sku)
+      .map((sku) => `"${sku}"`)
+      .join(',');
     const query = `
     {
-      products(filter: { sku: { in: ["6Seats8Sides_760", "8Seats10Sides_760", "5Seats5Sides_760", "10Seats12Sides_760", "7Seats8Sides_760"] } }) {
+      products(filter: { sku: { in: [${skus}] } }) {
         items {
           name
           sku
